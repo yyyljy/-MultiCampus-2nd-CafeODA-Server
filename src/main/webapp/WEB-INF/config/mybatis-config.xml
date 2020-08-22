@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	<typeAliases>
+		<typeAlias type="cafe.oda.cafeoda.TestVO" alias="testvo" />
+		<typeAlias type="cafe.oda.cafelist.CafeVO" alias="cafevo" />
+		<typeAlias type="cafe.oda.guest.GuestVO" alias="guestvo" />
+		<typeAlias type="cafe.oda.menulist.MenuVO" alias="menuvo" />
+		<typeAlias type="cafe.oda.getStationCount.stationDataVO" alias="stcntVO" />
+		<typeAlias type="cafe.oda.getStationCount.stationDTO" alias="stationOnOffDTO" />
+		<typeAlias type="cafe.oda.getEventSalesJson.salesNearbyDTO" alias="nearbyDTO" />
+		
+		<typeAlias type="cafe.oda.fcm.FCMDTO" alias="fcm"/>
+		
+		<typeAlias type="cafe.oda.mainList.cafeListDTO" alias="cafeDTO" />
+		
+		<typeAlias type="cafe.oda.orderlist.OrderDTO" alias="orderDTO" />
+		
+	</typeAliases>
+	<mappers>
+		<mapper resource="mapper/testmapper.xml" />
+		<mapper resource="mapper/cafelist.xml" />
+		<mapper resource="mapper/orderlist.xml" />
+		<mapper resource="mapper/guest.xml" />
+		<mapper resource="mapper/menulist.xml" />
+		<mapper resource="mapper/stationcntdata.xml"/>
+		<mapper resource="mapper/salesNearby.xml"/>
+		<mapper resource="mapper/fcm.xml"/>
+		<mapper resource="mapper/mainlist.xml"/>
+	</mappers>
+</configuration>

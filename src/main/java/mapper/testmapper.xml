@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper가 너무 많으니까 namespace로 구분지어주기 -->
+<mapper namespace="cafe.oda.cafeoda">
+
+<select id="testlistall" resultType="testvo">
+	select * from test
+</select>
+
+<insert id="testinsert">
+	insert into test values(testnum, teststr)
+	</insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+

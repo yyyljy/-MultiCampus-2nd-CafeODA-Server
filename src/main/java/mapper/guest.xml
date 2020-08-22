@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper namespace는 패키지명과 동일하게 작성할것 -->
+<mapper namespace="cafe.oda.guest">
+
+<select id="guestlogin" resultType="guestvo">
+	select * from guest where guestphone = #{guestphone}
+</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+

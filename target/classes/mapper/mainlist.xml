@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper namespace는 패키지명과 동일하게 작성할것 -->
+ <mapper namespace="cafe.oda.mainList">
+  	<select id="newcafe" resultType="cafeDTO">
+	<![CDATA[
+  		 select mm.*
+		 from (select * from cafelist order by regday desc) mm
+		 where rownum < 5
+	  	]]>
+  	</select>
+  	
+  	<select id="recentlist" resultType="cafeDTO">
+  		SELECT A.* FROM CafeList A 
+  		WHERE A.CafeId IN ( SELECT DISTINCT B.CafeId FROM ( SELECT C.CafeId FROM OrderList C ORDER BY C.OrdId DESC ) B ) 
+  		ORDER BY ROWNUM DESC
+  	</select>
+  	
+  	<select id="randomlist" resultType="cafeDTO">
+  	<![CDATA[
+	  	select S.* from(select * from cafelist order by DBMS_RANDOM.VALUE) S
+	    where rownum <6
+		]]>
+  	</select>
+  	
+
+</mapper>
+
+
+
+
+
+
+
+
+

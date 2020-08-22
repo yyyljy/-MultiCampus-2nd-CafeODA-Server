@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper namespace는 패키지명과 동일하게 작성할것 -->
+<mapper namespace="cafe.oda.cafelist">
+
+
+<!-- 카페주인이 로그인 하면 -->
+<select id="cafelogin" resultType="cafevo">
+	select * from cafelist where tel = #{tel}
+</select>
+
+<!-- guest가 매장 화면 들어가서 정보 보기 -->
+<select id ="entercafe" resultType = "cafevo">
+	select * from cafelist where cafeid=#{cafeid}
+</select>
+
+
+<select id ="mycafe" resultType = "cafevo">
+	select * from cafelist where cafeid=#{cafeid}
+</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+

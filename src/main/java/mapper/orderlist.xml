@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper namespace는 패키지명과 동일하게 작성할것 -->
+<mapper namespace="cafe.oda.orderlist">
+
+	<insert id="orderinsert">
+		insert into orderlist(ordid, guestphone, ordnum, orderdate, cafeid,
+		cafename,
+		menunum, prdname, country, quantity, icehot, cupsize, oneprice, status,
+		statusmsg)
+		values(ordid_seq.nextval,#{guestphone},#{ordnum},sysdate, #{cafeid},#{cafename},
+		#{menunum},#{prdname}, #{country}, #{quantity}, #{icehot},#{cupsize}, #{oneprice}, '0',
+		'주문완료')
+	</insert>
+
+	<select id="order" resultType="orderDTO" parameterType="String">
+		select *
+		from orderlist
+		where guestphone = #{guestphone}
+	</select>
+
+	<select id="guestorderlist" resultType="orderDTO">
+		select * from orderlist
+		where guestphone=#{guestphone} order by orderdate desc
+
+	</select>
+
+	<select id="ownerorderlist" resultType="orderDTO">
+		select * from orderlist
+		where cafeid=#{cafeid} and status=0 order by orderdate desc
+	</select>
+	
+	<select id="ownerhistorylist" resultType="orderDTO">
+		select * from orderlist
+		where cafeid=#{cafeid} order by orderdate desc
+	</select>
+	
+	<update id="updatestatus" >
+		update orderlist 
+		set status = 1, statusmsg = '제작완료' where ordid = #{ordid}
+	</update>
+
+
+
+	<!-- <select id="menulistall" resultType="menuvo"> select * from menulist 
+		where cafeid=#{cafeid} order by proid asc </select> <delete id="menudelete" 
+		parameterType="int" > delete from menulist where menunum = #{menunum} </delete> -->
+
+
+</mapper>
+
+
+
+
+
+
+
+
+

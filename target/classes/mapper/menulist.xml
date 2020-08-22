@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper namespace는 패키지명과 동일하게 작성할것 -->
+<mapper namespace="cafe.oda.menulist">
+
+<insert id="menuinsert" >
+	insert into menulist(menunum,cafeid,proid,proname,price,country)
+	values(menunum_seq.nextval,#{cafeid},#{proid},#{proname},#{price},#{country})
+</insert>
+
+<select id="menulistall" resultType="menuvo">
+	select * from menulist where cafeid=#{cafeid} order by proid asc
+
+</select>
+
+<delete id="menudelete" parameterType="int" >
+	delete from menulist where menunum = #{menunum}
+</delete>
+
+<!-- 손님에게 보여줄 메뉴 -->
+<select id="sellinglist" resultType="menuvo">
+	select * from menulist where cafeid=#{cafeid} order by proid asc
+
+</select>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
